@@ -1,0 +1,21 @@
+@media screen and (width < 920px) {
+  main{
+    padding: 0 20px;
+
+    article{
+      h1{
+        font-size: 27px !important;
+        left: 0 !important;
+      }
+
+      a{
+        left: 5px !important;
+      }
+    }
+
+    form{
+      width: 400px !important;
+      padding: 30px 20px !important;
+    }
+  }
+}

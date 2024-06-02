@@ -1,5 +1,4 @@
 import { Component, inject } from '@angular/core';
-import { CookieService } from 'ngx-cookie-service';
 import { UserService } from '../../../services/user.service';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { faEnvelope, faLock, faUserAlt } from '@fortawesome/free-solid-svg-icons';
