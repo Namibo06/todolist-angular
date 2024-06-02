@@ -1,0 +1,71 @@
+<div class="register-container">
+  <div class="callback">
+    <p class="error" *ngIf="errorCallback">{{messageError}}</p>
+    <p class="success" *ngIf="successCallback">{{messageSuccess}}</p>
+  </div><!--callback-->
+
+  <header>
+    <h3>Lista de Tarefas</h3>
+  </header>
+
+  <main>
+    <article>
+      <h1>Tem conta?</h1>
+
+      <a [routerLink]="['/iniciar-sessao']"> Clique aqui</a>
+    </article>
+
+    <form action="" method="post" (submit)="createUser()">
+      <div class="title">
+        <h3>Cadastre-se</h3>
+        <h5>Digite seus sonhos,e conquiste-os</h5>
+      </div><!--title-->
+
+      <div class="camp">
+        <label>Nome de Usuário</label>
+
+        <fa-icon [icon]="userIcon"></fa-icon>
+
+        <input type="text" name="username" [(ngModel)]="username" placeholder="exemplo: Joca12">
+      </div><!--camp-->
+
+      <div class="camp">
+        <label>Email</label>
+
+        <fa-icon [icon]="emailIcon"></fa-icon>
+
+        <input type="email" name="email" [(ngModel)]="email" placeholder="Digite o seu melhor email">
+      </div><!--camp-->
+
+      <div class="camp">
+        <label>Senha</label>
+
+        <fa-icon [icon]="passwordIcon"></fa-icon>
+
+        <input [type]="typePassword ? 'text' : 'password'" name="password" [(ngModel)]="password" placeholder="De 8 a 100 caracteres">
+
+        <button type="button" (click)="changeEyePassword()">
+          <fa-icon [icon]="layoutEyePasswordIcon"></fa-icon>
+        </button>
+      </div><!--camp-->
+
+      <div class="camp">
+        <label>Confirmar Senha</label>
+
+        <fa-icon [icon]="passwordIcon"></fa-icon>
+
+        <input [type]="typeConfirmPassword ? 'text' : 'password'" name="confirmPassword" [(ngModel)]="confirmPassword" placeholder="Deve ser igual a Senha">
+
+        <button type="button" (click)="changeTypeEyeConfirmPassword()">
+          <fa-icon [icon]="layoutEyeConfirmPasswordIcon"></fa-icon>
+        </button>
+      </div><!--camp-->
+
+      <button type="submit">Enviar</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>Produzido por <strong>Joalisson Pinto Maia</strong></p>
+  </footer>
+</div><!--register-container-->
