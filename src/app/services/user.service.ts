@@ -8,6 +8,7 @@ import { message_status } from '../models/message_status';
 })
 export class UserService {
   urlCreateUser: string="http://localhost:8080/users";
+  urlAuthUser: string="http://localhost:8080/users/auth";
 
   constructor(
     private http:HttpClient
@@ -21,5 +22,14 @@ export class UserService {
     };
 
     return this.http.post<message_status>(this.urlCreateUser,body);
+  }
+
+  authUserService(email:string,password:string):Observable<any>{
+    const body={
+      "email":email,
+      "password":password
+    };
+
+    return this.http.post<any>(this.urlAuthUser,body);
   }
 }
