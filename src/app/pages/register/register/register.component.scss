@@ -142,6 +142,19 @@ div.register-container{
         }
       }
 
+      nav.account{
+        display: none;
+
+        p{
+          font-size: 15px;
+          letter-spacing: 1px;
+
+          a{
+            color: #f7f0f0;
+          }
+        }
+      }
+
       button[type=submit]{
         margin-top: 20px;
         border-radius: 30px;

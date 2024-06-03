@@ -10,7 +10,7 @@
 
   <main>
     <article>
-      <h1>Tem conta?</h1>
+      <h1>Já tem conta?</h1>
 
       <a [routerLink]="['/iniciar-sessao']"> Clique aqui</a>
     </article>
@@ -60,6 +60,10 @@
           <fa-icon [icon]="layoutEyeConfirmPasswordIcon"></fa-icon>
         </button>
       </div><!--camp-->
+
+      <nav class="account">
+        <p>Já tem conta? Clique<a [routerLink]="['/cadastro']"> aqui</a></p>
+      </nav><!--account-->
 
       <button type="submit">Enviar</button>
     </form>
