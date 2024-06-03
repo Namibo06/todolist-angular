@@ -1,1 +1,26 @@
-<p>index works!</p>
+<div class="index-container">
+  <header>
+    <div class="title">
+      <h3>Lista de Tarefas</h3>
+    </div><!--title-->
+
+    <div class="search">
+      <form action="" (submit)="findTasksBySearch(search)">
+        <input type="text" name="search" [(ngModel)]="search">
+        <button type="submit">
+          <fa-icon [icon]="searchIcon"></fa-icon>
+        </button>
+      </form>
+    </div><!--search-->
+  </header>
+
+  <main>
+    <div class="tasks">
+      
+    </div><!--tasks-->
+  </main>
+
+  <footer>
+    <app-configurations></app-configurations>
+  </footer>
+</div><!--index-container-->

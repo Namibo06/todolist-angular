@@ -45,7 +45,7 @@ export class LoginComponent {
           setTimeout(() => {
             this.successCallback=false;
             window.location.href="/index";
-          }, 5000);
+          }, 3000);
       },
       error:(err)=>{
         console.log(err);

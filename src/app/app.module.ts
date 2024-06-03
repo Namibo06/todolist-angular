@@ -15,6 +15,9 @@ import { PerfilModule } from './pages/perfil/perfil.module';
 import { UpdateUserModule } from './pages/update-user/update-user.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ConfigurationsComponent } from './shared/configurations/configurations/configurations.component';
+import { ConfigurationsModule } from './shared/configurations/configurations.module';
+
 
 
 @NgModule({
@@ -34,7 +37,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     TaskModule,
     PerfilModule,
     UpdateUserModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ConfigurationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,16 @@
+<div class="configurations-container">
+  <div class="modal-options" *ngIf="options">
+    <ul>
+      <li>
+        <a [routerLink]="['/criar-tarefa']">Adicionar Tarefa</a>
+      </li>
+      <li>Configurações</li>
+    </ul>
+  </div><!--modal-options-->
+
+  <div class="option">
+    <button type="button" (click)="viewOptions()">
+      <fa-icon [icon]="changeOptionsLayout"></fa-icon>
+    </button>
+  </div><!--option-->
+</div><!--configurations-container-->
