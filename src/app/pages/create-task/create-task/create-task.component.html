@@ -1,3 +1,23 @@
 <div class="create-task-container">
-  
+  <header>
+    <div class="title">
+      <h3>Lista de Tarefas</h3>
+    </div><!--title-->
+  </header>
+
+  <main>
+    <form action="">
+      <div class="row">
+        <input type="text" name="title" [(ngModel)]="title">
+
+        <button type="submit">Salvar</button>
+      </div><!--row-->
+
+      <textarea name="description" [(ngModel)]="description"></textarea>
+    </form>
+  </main>
+
+  <footer>
+    <app-configurations></app-configurations>
+  </footer>
 </div><!--create-task-container-->

@@ -11,6 +11,8 @@ import { UserService } from '../../../services/user.service';
 })
 export class LoginComponent {
   /**data */
+  id:number=0;
+  username:string="";
   email: string="";
   password: string="";
   typePassword: boolean=false;
@@ -38,14 +40,16 @@ export class LoginComponent {
         console.log(res);
 
         this.successCallback=true;
-          this.messageSuccess=res.message;
-          localStorage.setItem("email",this.email);
-          localStorage.setItem("password",this.password);
+        this.messageSuccess=res.message;
+        localStorage.setItem("id",this.id.toString());
+        localStorage.setItem("username",this.username);
+        localStorage.setItem("email",this.email);
+        localStorage.setItem("password",this.password);
 
-          setTimeout(() => {
-            this.successCallback=false;
-            window.location.href="/index";
-          }, 3000);
+        setTimeout(() => {
+          this.successCallback=false;
+          window.location.href="/index";
+        }, 3000);
       },
       error:(err)=>{
         console.log(err);
