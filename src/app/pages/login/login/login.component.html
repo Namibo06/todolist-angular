@@ -1,3 +1,55 @@
 <div class="login-container">
-  <a [routerLink]="['/cadastro']">Cadastro</a>
+  <div class="callback">
+    <p class="error" *ngIf="errorCallback">{{messageError}}</p>
+    <p class="success" *ngIf="successCallback">{{messageSuccess}}</p>
+  </div><!--callback-->
+
+  <header>
+    <h3>Lista de Tarefas</h3>
+  </header>
+
+  <main>
+    <article>
+      <h1>Não tem conta?</h1>
+
+      <a [routerLink]="['/cadastro']"> Clique aqui</a>
+    </article>
+
+    <form action="" method="post" (submit)="autheticateUser()">
+      <div class="title">
+        <h3>Inicie a sessão</h3>
+        <h5>Entre e faça as suas anotações</h5>
+      </div><!--title-->
+
+      <div class="camp">
+        <label>Email</label>
+
+        <fa-icon [icon]="emailIcon"></fa-icon>
+
+        <input type="email" name="email" [(ngModel)]="email" placeholder="Digite o seu melhor email">
+      </div><!--camp-->
+
+      <div class="camp">
+        <label>Senha</label>
+
+        <fa-icon [icon]="passwordIcon"></fa-icon>
+
+        <input [type]="typePassword ? 'text' : 'password'" name="password" [(ngModel)]="password" placeholder="De 8 a 100 caracteres">
+
+        <button type="button" (click)="changeEyePassword()">
+          <fa-icon [icon]="layoutEyePasswordIcon"></fa-icon>
+        </button>
+      </div><!--camp-->
+
+      <nav class="account">
+        <p>Não tem conta? Clique<a [routerLink]="['/cadastro']"> aqui</a></p>
+      </nav><!--account-->
+
+      <button type="submit">Entrar</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>Produzido por <strong>Joalisson Pinto Maia</strong></p>
+  </footer>
 </div><!--login-container-->
