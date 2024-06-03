@@ -1,0 +1,50 @@
+header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px 40px;
+
+  div.title{
+
+  }
+
+  div.search{
+    margin: 0 auto;
+    position: relative;
+
+    form{
+      input{
+        padding: 8px 45px 8px 15px;
+        width: 250px;
+        border: 1px solid #000;
+        outline: 0;
+        border-radius: 30px;
+      }
+
+      button[type=submit]{
+        position: absolute;
+        top: 1px;
+        right: 1px;
+        border-top-right-radius: 30px;
+        border-bottom-right-radius:30px;
+        padding: 6px;
+        width: 40px;
+        border: 0;
+        background-color: #ccc;
+        cursor: pointer;
+
+        fa-icon{
+          color: #fff;
+          padding-right: 5px;
+          font-size: 17px;
+        }
+      }
+    }
+  }
+}
+
+footer{
+  position: absolute;
+  right: 80px;
+  bottom: 80px;
+}
