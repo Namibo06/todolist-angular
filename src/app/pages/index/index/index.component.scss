@@ -4,9 +4,13 @@ header{
   align-items: center;
   padding: 20px 40px;
 
-  /*div.title{
-
-  }*/
+  div.title{
+    h3{
+      font-size: 21px;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+    }
+  }
 
   div.search{
     margin: 0 auto;
@@ -27,7 +31,7 @@ header{
         right: 1px;
         border-top-right-radius: 30px;
         border-bottom-right-radius:30px;
-        padding: 6px;
+        padding: 4px;
         width: 40px;
         border: 0;
         background-color: #ccc;
@@ -36,7 +40,14 @@ header{
         fa-icon{
           color: #fff;
           padding-right: 5px;
-          font-size: 17px;
+          font-size: 19px;
+          position: relative;
+          top: 1px;
+
+          &:active{
+            position: relative;
+            top: 2px;
+          }
         }
       }
     }
