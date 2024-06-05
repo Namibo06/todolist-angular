@@ -103,6 +103,10 @@ export class RegisterComponent {
 
             setTimeout(() => {
               this.errorCallback=false;
+              this.email="";
+              this.username="";
+              this.password="";
+              this.confirmPassword="";
             }, 5000);
           }
         }

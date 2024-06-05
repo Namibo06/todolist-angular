@@ -59,6 +59,8 @@ export class LoginComponent {
 
           setTimeout(() => {
             this.errorCallback=false;
+            this.email="";
+            this.password="";
           }, 5000);
         }
       }
