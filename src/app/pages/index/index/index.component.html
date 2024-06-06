@@ -15,8 +15,18 @@
   </header>
 
   <main>
-    <div class="tasks">
-      
+    <div class="tasks" *ngFor="let task of tasks">
+      <div class="task-single">
+        <div class="title">
+          <p>{{task.title}}</p>
+        </div><!--title-->
+
+        <div class="actions">
+          <button type="button">
+            <fa-icon [icon]="actionsIcon"></fa-icon>
+          </button>
+        </div><!--actions-->
+      </div><!--task-single-->
     </div><!--tasks-->
   </main>
 

@@ -14,8 +14,6 @@ import { TaskModule } from './pages/task/task.module';
 import { PerfilModule } from './pages/perfil/perfil.module';
 import { UpdateUserModule } from './pages/update-user/update-user.module';
 import { HttpClientModule } from '@angular/common/http';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { ConfigurationsComponent } from './shared/configurations/configurations/configurations.component';
 import { ConfigurationsModule } from './shared/configurations/configurations.module';
 
 
@@ -37,7 +35,6 @@ import { ConfigurationsModule } from './shared/configurations/configurations.mod
     TaskModule,
     PerfilModule,
     UpdateUserModule,
-    FontAwesomeModule,
     ConfigurationsModule
   ],
   providers: [],

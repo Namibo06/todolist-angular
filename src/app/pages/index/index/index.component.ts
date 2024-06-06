@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faEllipsis, faEllipsisVertical, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { TaskService } from '../../../services/task.service';
 
 @Component({
   selector: 'app-index',
@@ -8,20 +9,42 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
   styleUrl: './index.component.scss'
 })
 export class IndexComponent implements OnInit{
+  /**data */
+  user_id:string|null="";
   email:string|null="";
   password:string|null="";
   search:string="";
+  title:string="";
+  tasks:any=[];
+
+  /**icons */
   searchIcon: IconDefinition=faSearch;
+  actionsIcon:IconDefinition=faEllipsisVertical;
 
-  constructor(){
-
-  }
+  constructor(
+    private service:TaskService
+  ){}
 
   ngOnInit(){
     this.verifyCredentials();
+    this.findAllTask();
+  }
+
+  findAllTask(){
+    this.service.findAllTaskService(this.user_id).subscribe({
+      next:(res)=>{
+        console.log(res);
+        this.tasks=res;
+
+      },
+      error:(err)=>{
+        console.error(err);
+      }
+    });
   }
 
   verifyCredentials(){
+    this.user_id=localStorage.getItem("user_id");
     this.email=localStorage.getItem("email");
     this.password=localStorage.getItem("password");
 

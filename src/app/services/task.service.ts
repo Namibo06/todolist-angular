@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { message_status } from '../models/message_status';
 import { create_task } from '../models/create_task';
+import { findAll } from '../models/findAll';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ import { create_task } from '../models/create_task';
 export class TaskService {
   urlCreateTask:string="http://localhost:8080/tasks";
   urlTaskFindById:string="http://localhost:8080/tasks/";
+  urlTaskFindAll:string="http://localhost:8080/tasks/findAll/";
 
   constructor(
     private http:HttpClient
@@ -29,6 +31,10 @@ export class TaskService {
 
   findTaskByIdService(task_id:string):Observable<create_task>{
     return this.http.get<create_task>(this.urlTaskFindById+task_id);
+  }
+
+  findAllTaskService(user_id:string|null):Observable<findAll>{
+    return this.http.get<findAll>(this.urlTaskFindAll+user_id);
   }
 
   updateTask(task_id:string,title:string,description:string):Observable<create_task>{
