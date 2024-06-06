@@ -23,17 +23,24 @@
   <main>
     <div class="tasks" *ngFor="let task of tasks">
       <div class="task-single">
-        <a [routerLink]="['/task/'+task.id]" (click)="onAnchorClick($event)">
+        <a [routerLink]="['/task/'+task.id]">
           <div class="title">
             <p>{{task.title}}</p>
           </div><!--title-->
         </a>
 
-          <div class="actions">
-            <button type="button" (click)="onButtonClick($event)">
-              <fa-icon [icon]="actionsIcon"></fa-icon>
-            </button>
-          </div><!--actions-->
+        <div class="actions">
+          <button type="button" (click)="openModalDelete(task.id)">
+            <fa-icon [icon]="actionsIcon"></fa-icon>
+          </button>
+        </div><!--actions-->
+
+        <div class="modal-delete"  *ngIf="task.showDeleteModal">
+          <button type="button">
+            <fa-icon [icon]="deleteTaskIcon"></fa-icon>
+            Deletar Tarefa
+          </button>
+        </div><!--modal-delete-->
       </div><!--task-single-->
     </div><!--tasks-->
   </main>

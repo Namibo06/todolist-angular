@@ -83,7 +83,7 @@ main{
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      padding: 0px 10px;
+      padding: 0px 20px 0px 10px;
       border-bottom: 2px solid rgb(12,14,90);
 
       a{
@@ -100,6 +100,42 @@ main{
 
     &:first-child{
       border-top: 2px solid rgb(12,14,90);
+    }
+
+    div.actions{
+      button{
+        border: 0;
+        background-color: transparent;
+
+        fa-icon{
+          font-size: 24px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    div.modal-delete{
+      position: absolute;
+      right: 60px;
+
+      button{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background-color: rgba(0,0,0,0.1);
+        color: #ff0000;
+        padding: 5px;
+        border-radius: 5px;
+        border: 0;
+        cursor: pointer;
+        font-size: 17px;
+
+        fa-icon{
+          margin-right: 5px;
+          font-size: 17px;
+          color: #ff0000;
+        }
+      }
     }
   }
 }

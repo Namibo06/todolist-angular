@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { faEllipsis, faEllipsisVertical, faGear, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faEllipsis, faEllipsisVertical, faGear, faSearch, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { TaskService } from '../../../services/task.service';
 import { FaConfig } from '@fortawesome/angular-fontawesome';
 
@@ -22,6 +22,10 @@ export class IndexComponent implements OnInit{
   searchIcon: IconDefinition=faSearch;
   actionsIcon:IconDefinition=faEllipsisVertical;
   enginnerIcon:IconDefinition=faGear;
+  deleteTaskIcon:IconDefinition=faTrash;
+
+  /**modal delete */
+  modal_delete:boolean=false;
 
   constructor(
     private service:TaskService
@@ -32,23 +36,26 @@ export class IndexComponent implements OnInit{
     this.findAllTask();
   }
 
-  onAnchorClick(event: Event) {
-    event.preventDefault(); // Evita o comportamento padrão de redirecionamento do link
+  openModalDelete(taskId: number) {
+    this.tasks = this.tasks.map((task: any) => {
+      if (task.id === taskId) {
+        task.showDeleteModal = !task.showDeleteModal;
+      } else {
+        task.showDeleteModal = false; // opcional: fechar outros modais
+      }
+      return task;
+    });
   }
 
-  onButtonClick(event: Event) {
-    event.stopPropagation(); // Impede a propagação do evento de clique para o elemento pai (a âncora)
-    // Coloque aqui o código que deseja executar quando o botão é clicado
-  }
-
-  findAllTask(){
+  findAllTask() {
     this.service.findAllTaskService(this.user_id).subscribe({
-      next:(res)=>{
-        console.log(res);
-        this.tasks=res;
-
+      next: (res) => {
+        this.tasks = res.map((task: any) => {
+          task.showDeleteModal = false;
+          return task;
+        });
       },
-      error:(err)=>{
+      error: (err) => {
         console.error(err);
       }
     });
