@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login/login.component';
 import { RegisterComponent } from './pages/register/register/register.component';
 import { IndexComponent } from './pages/index/index/index.component';
 import { CreateTaskComponent } from './pages/create-task/create-task/create-task.component';
+import { TaskComponent } from './pages/task/task/task.component';
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
@@ -25,6 +26,10 @@ const routes: Routes = [
   {
     path:"criar-tarefa",
     component:CreateTaskComponent
+  },
+  {
+    path:"task/:id",
+    component:TaskComponent
   }
 ];
 

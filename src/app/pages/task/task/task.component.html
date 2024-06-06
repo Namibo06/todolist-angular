@@ -1,1 +1,26 @@
-<p>task works!</p>
+<div class="task-container">
+  <header>
+    <div class="back-page">
+      <button type="button">
+        <fa-icon [icon]="back_page" onclick="return history.go(-1)"></fa-icon>
+      </button>
+    </div><!--back-page-->
+
+    <div class="title">
+      <h3>Lista de Tarefas</h3>
+    </div><!--title-->
+  </header>
+
+  <main>
+    <form action="" (submit)="updateTask()">
+      <div class="row">
+        <input type="text" name="title" [(ngModel)]="title" required>
+
+        <button type="submit">Salvar</button>
+      </div><!--row-->
+
+      <textarea name="description" [(ngModel)]="description"></textarea>
+    </form>
+  </main>
+</div><!--task-container-->
+

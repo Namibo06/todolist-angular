@@ -41,10 +41,9 @@ export class LoginComponent {
 
         this.successCallback=true;
         this.messageSuccess=res.message;
-        localStorage.setItem("id",this.id.toString());
-        localStorage.setItem("username",this.username);
-        localStorage.setItem("email",this.email);
-        localStorage.setItem("password",this.password);
+        localStorage.setItem("user_id",res.data.id);
+        localStorage.setItem("username",res.data.username);
+        localStorage.setItem("email",res.data.email);
 
         setTimeout(() => {
           this.successCallback=false;

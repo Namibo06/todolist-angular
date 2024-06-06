@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
@@ -12,9 +12,9 @@ import { FormsModule } from '@angular/forms';
   exports:[LoginComponent],
   imports: [
     CommonModule,
+    FormsModule,
     RouterModule,
-    FontAwesomeModule,
-    FormsModule
+    FontAwesomeModule
   ]
 })
 export class LoginModule { }

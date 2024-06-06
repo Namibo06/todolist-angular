@@ -1,22 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CreateTaskComponent } from './create-task/create-task.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { ConfigurationsModule } from '../../shared/configurations/configurations.module';
-import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
 @NgModule({
   declarations: [CreateTaskComponent],
   exports:[CreateTaskComponent],
-  imports: [
+  imports:[
     CommonModule,
-    FontAwesomeModule,
-    ConfigurationsModule,
+    FormsModule,
     RouterModule,
-    FormsModule
+    FontAwesomeModule
   ]
 })
 export class CreateTaskModule { }

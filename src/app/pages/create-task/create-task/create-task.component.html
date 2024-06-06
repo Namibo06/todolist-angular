@@ -1,14 +1,20 @@
 <div class="create-task-container">
   <header>
+    <div class="back-page">
+      <button type="button">
+        <fa-icon [icon]="back_page" onclick="return history.go(-1)"></fa-icon>
+      </button>
+    </div><!--back-page-->
+
     <div class="title">
       <h3>Lista de Tarefas</h3>
     </div><!--title-->
   </header>
 
   <main>
-    <form action="">
+    <form action="" (submit)="createTask()">
       <div class="row">
-        <input type="text" name="title" [(ngModel)]="title">
+        <input type="text" name="title" [(ngModel)]="title" required>
 
         <button type="submit">Salvar</button>
       </div><!--row-->
@@ -16,8 +22,4 @@
       <textarea name="description" [(ngModel)]="description"></textarea>
     </form>
   </main>
-
-  <footer>
-    <app-configurations></app-configurations>
-  </footer>
 </div><!--create-task-container-->
