@@ -54,6 +54,36 @@ header{
   }
 }
 
+main{
+  padding-top: 80px;
+
+  div.tasks{
+    div.task-single{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0px 10px;
+      border-bottom: 2px solid rgb(12,14,90);
+
+      a{
+        text-decoration: none;
+        color: #000;
+
+        div.title{
+          width: 90vw;
+          max-width: 95%;
+          padding: 30px 0;
+        }
+      }
+    }
+
+    &:first-child{
+      border-top: 2px solid rgb(12,14,90);
+    }
+  }
+}
+
 footer{
   position: absolute;
   right: 80px;

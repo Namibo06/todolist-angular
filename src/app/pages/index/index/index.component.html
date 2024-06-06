@@ -17,15 +17,17 @@
   <main>
     <div class="tasks" *ngFor="let task of tasks">
       <div class="task-single">
-        <div class="title">
-          <p>{{task.title}}</p>
-        </div><!--title-->
+        <a [routerLink]="['/task/'+task.id]" (click)="onAnchorClick($event)">
+          <div class="title">
+            <p>{{task.title}}</p>
+          </div><!--title-->
+        </a>
 
-        <div class="actions">
-          <button type="button">
-            <fa-icon [icon]="actionsIcon"></fa-icon>
-          </button>
-        </div><!--actions-->
+          <div class="actions">
+            <button type="button" (click)="onButtonClick($event)">
+              <fa-icon [icon]="actionsIcon"></fa-icon>
+            </button>
+          </div><!--actions-->
       </div><!--task-single-->
     </div><!--tasks-->
   </main>
