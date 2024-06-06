@@ -1,0 +1,85 @@
+div.task-container{
+  header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 20px;
+
+    div.back-page{
+      button{
+        border: 0;
+        background-color: transparent;
+
+        fa-icon{
+          font-size: 21px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    div.title{
+      margin: 0 auto;
+
+      h3{
+        font-size: 21px;
+        font-weight: 400;
+        letter-spacing: 0.5px;
+      }
+    }
+  }
+
+  main{
+    form{
+      padding: 0 10px;
+
+      div.row{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        input{
+          width: 80%;
+          padding: 10px;
+          border: 1px solid #000;
+          border-radius: 5px;
+          outline: 0;
+        }
+
+        button{
+          position: absolute;
+          right: 40px;
+          cursor: pointer;
+          padding: 8px;
+          border-radius: 5px;
+          border: 0;
+          background-color: rgb(0,200,200);
+          color: #fff;
+          font-size: 16px;
+          font-weight: bold;
+          letter-spacing: 0.5px;
+          transition: 0.4s;
+
+          &:hover{
+            background-color: rgb(0,230,230);
+          }
+
+          &:active{
+            position: absolute;
+            top: 49px;
+          }
+        }
+      }
+
+      textarea{
+        margin-top: 20px;
+        resize: none;
+        width: 100%;
+        min-height: 83vh;
+        outline: 0;
+        padding: 10px;
+        border-radius: 5px;
+        overflow-y: auto;
+      }
+    }
+  }
+}
