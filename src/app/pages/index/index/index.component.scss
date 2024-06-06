@@ -1,6 +1,7 @@
 header{
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
 
@@ -48,6 +49,25 @@ header{
             position: relative;
             top: 2px;
           }
+        }
+      }
+    }
+  }
+
+  div.config{
+    button{
+      /*alterar depois para extends*/
+      border: 0;
+      background-color: transparent;
+
+      fa-icon{
+        font-size: 21px;
+        color: #333;
+        cursor: pointer;
+
+        &:active{
+          position: relative;
+          top: 1px;
         }
       }
     }

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { faEllipsis, faEllipsisVertical, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faEllipsis, faEllipsisVertical, faGear, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { TaskService } from '../../../services/task.service';
+import { FaConfig } from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'app-index',
@@ -20,6 +21,7 @@ export class IndexComponent implements OnInit{
   /**icons */
   searchIcon: IconDefinition=faSearch;
   actionsIcon:IconDefinition=faEllipsisVertical;
+  enginnerIcon:IconDefinition=faGear;
 
   constructor(
     private service:TaskService
