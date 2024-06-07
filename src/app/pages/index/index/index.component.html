@@ -36,10 +36,19 @@
         </div><!--actions-->
 
         <div class="modal-delete"  *ngIf="task.showDeleteModal">
-          <button type="button">
+          <button type="button" (click)="openSubModalDelete()" *ngIf="btn_delete_task">
             <fa-icon [icon]="deleteTaskIcon"></fa-icon>
             Deletar Tarefa
           </button>
+
+          <div class="sub-modal-delete" *ngIf="sub_modal_delete">
+            <p>Deseja realmente excluir a tarefa {{task.id}}?</p>
+
+            <div class="buttons">
+              <button type="button" (click)="deleteTask(task.id)">Excluir</button>
+              <button type="button" (click)="cancelSubModalDelete(task.id)">Cancelar</button>
+            </div><!--buttons-->
+          </div><!--sub-modal-delete-->
         </div><!--modal-delete-->
       </div><!--task-single-->
     </div><!--tasks-->

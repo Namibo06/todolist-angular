@@ -130,10 +130,49 @@ main{
         cursor: pointer;
         font-size: 17px;
 
+        &:active{
+          position: relative;
+          top: 1px;
+        }
+
         fa-icon{
           margin-right: 5px;
           font-size: 17px;
           color: #ff0000;
+        }
+      }
+
+      div.sub-modal-delete{
+        margin: 0 auto;
+        width: 300px;
+        height: 80px;
+        background-color: rgba(0,0,0,0.7);
+        color: #fff;
+
+        p{
+          text-align: center;
+          padding-top: 4px;
+        }
+
+        div.buttons{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          align-items: center;
+          padding: 20px 20px 0px 20px;
+
+          button{
+            color: #fff;
+            letter-spacing: 0.5px;
+
+            &:nth-child(1){
+              background-color: #ff0000;
+            }
+
+            &:nth-child(2){
+              background-color: #bba6a6;
+            }
+          }
         }
       }
     }

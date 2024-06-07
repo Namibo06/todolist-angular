@@ -26,6 +26,8 @@ export class IndexComponent implements OnInit{
 
   /**modal delete */
   modal_delete:boolean=false;
+  sub_modal_delete:boolean=false;
+  btn_delete_task:boolean=true;
 
   constructor(
     private service:TaskService
@@ -34,6 +36,25 @@ export class IndexComponent implements OnInit{
   ngOnInit(){
     this.verifyCredentials();
     this.findAllTask();
+  }
+
+  deleteTask(task_id:number){
+    console.log(task_id);
+    this.btn_delete_task=true;
+  }
+
+  cancelSubModalDelete(taskId:number){
+    this.sub_modal_delete=false;
+    this.tasks = this.tasks.map((task: any) => {
+      task.showDeleteModal = false;
+      return task;
+    });
+    this.btn_delete_task=true;
+  }
+
+  openSubModalDelete(){
+    this.sub_modal_delete=true;
+    this.btn_delete_task=false;
   }
 
   openModalDelete(taskId: number) {
