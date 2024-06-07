@@ -216,5 +216,11 @@ footer{
 
   main{
     padding-top: 40px;
+
+    div.sub-modal-delete{
+      position: absolute;
+      right: -60px;
+      bottom: -39px;
+    }
   }
 }
