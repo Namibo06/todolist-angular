@@ -45,4 +45,8 @@ export class TaskService {
 
     return this.http.put<create_task>(this.urlTaskFindById+task_id,body);
   }
+
+  deleteTask(task_id:number):Observable<any>{
+    return this.http.delete(this.urlTaskFindById+task_id);
+  }
 }

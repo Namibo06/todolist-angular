@@ -39,8 +39,16 @@ export class IndexComponent implements OnInit{
   }
 
   deleteTask(task_id:number){
-    console.log(task_id);
-    this.btn_delete_task=true;
+    this.service.deleteTask(task_id).subscribe({
+      next:(res)=>{
+        console.log(res);
+        this.btn_delete_task=true;
+        window.location.href="/index";
+      },
+      error:(err)=>{
+        console.error(err);
+      }
+    });
   }
 
   cancelSubModalDelete(taskId:number){
