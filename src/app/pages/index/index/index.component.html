@@ -5,9 +5,9 @@
     </div><!--title-->
 
     <div class="search">
-      <form action="" (submit)="findTasksBySearch(search)">
+      <form action="" (keyup)="findTasksBySearch(search)">
         <input type="text" name="search" [(ngModel)]="search">
-        <button type="submit">
+        <button type="button" (click)="findTasksBySearch(search)">
           <fa-icon [icon]="searchIcon"></fa-icon>
         </button>
       </form>
