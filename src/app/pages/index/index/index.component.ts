@@ -3,6 +3,7 @@ import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { faEllipsis, faEllipsisVertical, faGear, faSearch, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { TaskService } from '../../../services/task.service';
 import { FaConfig } from '@fortawesome/angular-fontawesome';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-index',
@@ -100,7 +101,16 @@ export class IndexComponent implements OnInit{
     }
   }
 
-  findTasksBySearch(search:string) {
-    console.log(search);
+  findTasksSearch(search:string) {
+    this.service.findTaskSearchService(search,this.user_id).subscribe({
+      next: (res) => {
+        console.log("aqui");
+        console.log(res);
+        this.tasks=res;
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    });
   }
 }

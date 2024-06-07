@@ -11,6 +11,7 @@ import { findAll } from '../models/findAll';
 export class TaskService {
   urlCreateTask:string="http://localhost:8080/tasks";
   urlTaskFindById:string="http://localhost:8080/tasks/";
+  urlTaskSearch:string="http://localhost:8080/tasks/search";
   urlTaskFindAll:string="http://localhost:8080/tasks/findAll/";
 
   constructor(
@@ -35,6 +36,17 @@ export class TaskService {
 
   findAllTaskService(user_id:string|null):Observable<findAll>{
     return this.http.get<findAll>(this.urlTaskFindAll+user_id);
+  }
+
+  findTaskSearchService(search:string,user_id:string|null):Observable<findAll>{
+    const body={
+      "search":search,
+      "user_id":{
+        "id":user_id
+      }
+    };
+
+    return this.http.post<findAll>(this.urlTaskSearch,body);
   }
 
   updateTask(task_id:string,title:string,description:string):Observable<create_task>{
