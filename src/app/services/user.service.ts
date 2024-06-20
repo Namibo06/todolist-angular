@@ -7,8 +7,8 @@ import { message_status } from '../models/message_status';
   providedIn: 'root'
 })
 export class UserService {
-  urlCreateUser: string="http://localhost:8080/users";
-  urlAuthUser: string="http://localhost:8080/users/auth";
+  urlCreateUser: string="https://api-restfull-todolist-springboot-production.up.railway.app/users/";
+  urlAuthUser: string="http://localhost:8080/users/login";
 
   constructor(
     private http:HttpClient
@@ -26,7 +26,7 @@ export class UserService {
 
   authUserService(email:string,password:string):Observable<any>{
     const body={
-      "email":email,
+      "login":email,
       "password":password
     };
 

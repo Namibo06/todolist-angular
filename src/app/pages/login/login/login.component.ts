@@ -40,10 +40,12 @@ export class LoginComponent {
         console.log(res);
 
         this.successCallback=true;
-        this.messageSuccess=res.message;
-        localStorage.setItem("user_id",res.data.id);
-        localStorage.setItem("username",res.data.username);
-        localStorage.setItem("email",res.data.email);
+        this.messageSuccess="Usuário Autenticado";
+        //localStorage.setItem("user_id",res.data.id);
+       // localStorage.setItem("username",res.data.username);
+        localStorage.setItem("email",this.email);
+        //TODO:preciso pegar,id,username e email
+        //por enquanto somente utilizazr email
 
         setTimeout(() => {
           this.successCallback=false;
@@ -52,6 +54,17 @@ export class LoginComponent {
       },
       error:(err)=>{
         console.log(err);
+        if(err.status===403){
+          this.errorCallback=true;
+          this.messageError="Usuário não autorizado";
+
+          setTimeout(() => {
+            this.errorCallback=false;
+            this.email="";
+            this.password="";
+          }, 5000);
+        }
+
         if(err.status===404){
           this.errorCallback=true;
           this.messageError="Usuário não encontrado";

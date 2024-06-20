@@ -10,3 +10,6 @@
 //delete-task
 
 //ver questão de por background como rgba(0,0,0,0.2) em toda a tela,enquanto na index estiver aberto o botão
+
+//TODO:preciso pegar,id,username e email
+//por enquanto somente utilizar email no login
