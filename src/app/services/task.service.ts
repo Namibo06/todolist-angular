@@ -9,10 +9,10 @@ import { findAll } from '../models/findAll';
   providedIn: 'root'
 })
 export class TaskService {
-  urlCreateTask:string="http://localhost:8080/tasks";
-  urlTaskFindById:string="http://localhost:8080/tasks/";
-  urlTaskSearch:string="http://localhost:8080/tasks/search";
-  urlTaskFindAll:string="http://localhost:8080/tasks/findAll/";
+  urlCreateTask:string="https://api-restfull-todolist-springboot-production.up.railway.app/tasks";
+  urlTaskFindById:string="https://api-restfull-todolist-springboot-production.up.railway.app/tasks/";
+  urlTaskSearch:string="https://api-restfull-todolist-springboot-production.up.railway.app/tasks/search";
+  urlTaskFindAll:string="https://api-restfull-todolist-springboot-production.up.railway.app/tasks/findAll/";
 
   constructor(
     private http:HttpClient
