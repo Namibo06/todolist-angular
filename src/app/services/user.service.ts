@@ -26,7 +26,7 @@ export class UserService {
 
   authUserService(email:string,password:string):Observable<any>{
     const body={
-      "login":email,
+      "email":email,
       "password":password
     };
 
