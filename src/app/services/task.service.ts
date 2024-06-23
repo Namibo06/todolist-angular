@@ -14,6 +14,7 @@ export class TaskService {
   urlTaskSearch:string="https://api-restfull-todolist-springboot-production.up.railway.app/tasks/search";
   urlTaskFindAll:string="https://api-restfull-todolist-springboot-production.up.railway.app/tasks/findAll/";
 
+
   constructor(
     private http:HttpClient
   ) { }
@@ -33,6 +34,8 @@ export class TaskService {
   findTaskByIdService(task_id:string):Observable<create_task>{
     return this.http.get<create_task>(this.urlTaskFindById+task_id);
   }
+
+
 
   findAllTaskService(user_id:string|null):Observable<findAll>{
     return this.http.get<findAll>(this.urlTaskFindAll+user_id);

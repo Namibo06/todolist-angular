@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { faEllipsis, faEllipsisVertical, faGear, faSearch, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faEllipsisVertical, faGear, faSearch, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { TaskService } from '../../../services/task.service';
-import { FaConfig } from '@fortawesome/angular-fontawesome';
 import { UserService } from '../../../services/user.service';
 
 @Component({
@@ -15,6 +14,7 @@ export class IndexComponent implements OnInit{
   user_id:string|null="";
   email:string|null="";
   password:string|null="";
+  token:string|null="";
   search:string="";
   title:string="";
   tasks:any=[];
@@ -31,12 +31,26 @@ export class IndexComponent implements OnInit{
   btn_delete_task:boolean=true;
 
   constructor(
-    private service:TaskService
+    private service:TaskService,
+    private userService:UserService
   ){}
 
   ngOnInit(){
     this.verifyCredentials();
+    this.verifyUser();
     this.findAllTask();
+  }
+
+  verifyUser() {
+    this.userService.verifyTokenService(this.token).subscribe({
+      next:(res)=>{
+        this.user_id=res.id.toString();
+        localStorage.setItem("user_id",this.user_id);
+      },
+      error:(err)=>{
+        console.log(err);
+      }
+    })
   }
 
   deleteTask(task_id:number){
@@ -93,10 +107,9 @@ export class IndexComponent implements OnInit{
 
   verifyCredentials(){
     this.user_id=localStorage.getItem("user_id");
-    this.email=localStorage.getItem("email");
-    this.password=localStorage.getItem("password");
+    this.token = localStorage.getItem("token");
 
-    if(this.email == "" || this.password == ""){
+    if(this.token === ""){
       window.location.href="/iniciar-sessao";
     }
   }
