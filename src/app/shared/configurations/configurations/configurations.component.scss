@@ -12,7 +12,11 @@ div.modal-options{
 
     li{
       list-style-type: none;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
+
+      :hover{
+        color: #ccc;
+      }
 
       a{
         color: #fff;
