@@ -7,7 +7,7 @@ import { TaskService } from '../../../services/task.service';
 @Component({
   selector: 'app-create-task',
   templateUrl: './create-task.component.html',
-  styleUrl: './create-task.component.scss'
+  styleUrls: ['./create-task.component.scss','./create-task-component.responsive.scss']
 })
 export class CreateTaskComponent{
   /**data */

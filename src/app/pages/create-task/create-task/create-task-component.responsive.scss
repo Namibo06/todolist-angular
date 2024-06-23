@@ -1,0 +1,27 @@
+@media screen and (width < 680px) {
+  main{
+    form{
+      div.row{
+        align-items: none !important;
+        justify-content: space-between !important;
+
+        button{
+          right: 10px !important;
+          padding: 10px !important;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (width < 380px) {
+  main{
+    form{
+      div.row{
+        input{
+          width: 70% !important;
+        }
+      }
+    }
+  }
+}
