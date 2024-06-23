@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { message_status } from '../models/message_status';
+import { token_login } from '../models/token_login';
 
 @Injectable({
   providedIn: 'root'
@@ -24,12 +25,12 @@ export class UserService {
     return this.http.post<message_status>(this.urlCreateUser,body);
   }
 
-  authUserService(email:string,password:string):Observable<any>{
+  authUserService(email:string,password:string):Observable<token_login>{
     const body={
       "email":email,
       "password":password
     };
 
-    return this.http.post<any>(this.urlAuthUser,body);
+    return this.http.post<token_login>(this.urlAuthUser,body);
   }
 }

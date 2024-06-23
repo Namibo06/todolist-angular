@@ -41,11 +41,7 @@ export class LoginComponent {
 
         this.successCallback=true;
         this.messageSuccess="Usuário Autenticado";
-        //localStorage.setItem("user_id",res.data.id);
-       // localStorage.setItem("username",res.data.username);
-        localStorage.setItem("email",this.email);
-        //TODO:preciso pegar,id,username e email
-        //por enquanto somente utilizazr email
+        localStorage.setItem("token",res.token);
 
         setTimeout(() => {
           this.successCallback=false;
