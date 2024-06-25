@@ -1,3 +1,11 @@
+div.header-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+}
+
 div.title{
   h3{
     font-size: 21px;

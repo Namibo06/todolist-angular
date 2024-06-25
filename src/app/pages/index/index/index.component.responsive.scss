@@ -1,8 +1,4 @@
 @media screen and (width < 600px) {
-  header{
-    padding: 20px 10px;
-  }
-
   footer{
     display: flex;
     position: fixed;
@@ -12,11 +8,6 @@
 }
 
 @media screen and (width < 480px) {
-  header{
-    display: flex;
-    flex-direction: column;
-  }
-
   main{
     padding-top: 40px;
 

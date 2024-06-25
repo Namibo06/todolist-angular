@@ -1,4 +1,8 @@
 @media screen and (width < 600px) {
+  div.header-container{
+    padding: 20px 10px;
+  }
+
   div.search{
     margin: 0;
   }
@@ -8,7 +12,12 @@
   }
 }
 
-@media screen and (width < 480px) {
+@media screen and (width < 520px) {
+  div.header-container{
+    display: flex;
+    flex-direction: column;
+  }
+
   div.search{
     margin-top: 20px;
   }

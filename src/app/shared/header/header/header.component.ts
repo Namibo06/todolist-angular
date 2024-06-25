@@ -7,7 +7,7 @@ import { UserService } from '../../../services/user.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrls: ['./header.component.scss','./header.component.responsive.scss']
 })
 export class HeaderComponent implements OnInit{
   /**data */
