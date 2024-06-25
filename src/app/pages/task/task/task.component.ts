@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',
-  styleUrl: './task.component.scss'
+  styleUrls: ['./task.component.scss','./task.component.responsive.scss']
 })
 export class TaskComponent implements OnInit{
   /**data */
