@@ -1,0 +1,41 @@
+@media screen and (width < 600px) {
+  header{
+    padding: 20px 10px;
+
+    div.search{
+      margin: 0;
+    }
+
+    div.config{
+      display: none;
+    }
+  }
+
+  footer{
+    display: flex;
+    position: fixed;
+    right: 80px;
+    bottom: 80px;
+  }
+}
+
+@media screen and (width < 480px) {
+  header{
+    display: flex;
+    flex-direction: column;
+
+    div.search{
+      margin-top: 20px;
+    }
+  }
+
+  main{
+    padding-top: 40px;
+
+    div.sub-modal-delete{
+      position: absolute;
+      right: -60px;
+      bottom: -39px;
+    }
+  }
+}

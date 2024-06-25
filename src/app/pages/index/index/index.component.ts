@@ -7,7 +7,7 @@ import { UserService } from '../../../services/user.service';
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
-  styleUrl: './index.component.scss'
+  styleUrls: ['./index.component.scss','./index.component.responsive.scss']
 })
 export class IndexComponent implements OnInit{
   /**data */
