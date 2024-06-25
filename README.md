@@ -1,15 +1,14 @@
 //register V
 //login V
-//index
-//perfil
+//index v
+//configurations
 //update-user
 //delete-user
 //task/{id} V
 //create-task V
 //update-task V
-//delete-task
+//delete-task v
 
 //ver questão de por background como rgba(0,0,0,0.2) em toda a tela,enquanto na index estiver aberto o botão
 
-//TODO:preciso pegar,id,username e email
-//por enquanto somente utilizar email no login
+//ver que separei o header da index,então findTasksBySearch é diferente agora tem que passar de filho pra pai

@@ -1,20 +1,6 @@
 <div class="index-container">
   <header>
-    <div class="title">
-      <h3>Lista de Tarefas</h3>
-    </div><!--title-->
-
-    <div class="search">
-      <form action="" (keyup)="findTasksSearch(search)">
-        <input type="text" name="search" [(ngModel)]="search">
-      </form>
-    </div><!--search-->
-
-    <div class="config">
-      <button type="button">
-        <fa-icon [icon]="enginnerIcon"></fa-icon>
-      </button>
-    </div><!--config-->
+    <app-header></app-header>
   </header>
 
   <main>

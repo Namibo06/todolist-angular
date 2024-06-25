@@ -1,0 +1,15 @@
+@media screen and (width < 600px) {
+  div.search{
+    margin: 0;
+  }
+
+  div.config{
+    display: none;
+  }
+}
+
+@media screen and (width < 480px) {
+  div.search{
+    margin-top: 20px;
+  }
+}

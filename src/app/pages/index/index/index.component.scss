@@ -9,47 +9,7 @@ header{
   align-items: center;
   padding: 20px 40px;
 
-  div.title{
-    h3{
-      font-size: 21px;
-      font-weight: 400;
-      letter-spacing: 0.5px;
-    }
-  }
-
-  div.search{
-    margin: 0 auto;
-    position: relative;
-
-    form{
-      input{
-        padding: 8px 15px;
-        width: 250px;
-        border: 1px solid #000;
-        outline: 0;
-        border-radius: 30px;
-      }
-    }
-  }
-
-  div.config{
-    button{
-      /*alterar depois para extends*/
-      border: 0;
-      background-color: transparent;
-
-      fa-icon{
-        font-size: 21px;
-        color: #333;
-        cursor: pointer;
-
-        &:active{
-          position: relative;
-          top: 1px;
-        }
-      }
-    }
-  }
+  
 }
 
 main{

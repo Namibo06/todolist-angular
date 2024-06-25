@@ -15,14 +15,14 @@ import { PerfilModule } from './pages/perfil/perfil.module';
 import { UpdateUserModule } from './pages/update-user/update-user.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ConfigurationsModule } from './shared/configurations/configurations.module';
-import { ConfigurationsComponent } from './pages/configurations/configurations/configurations.component';
+import { HeaderComponent } from './shared/header/header/header.component';
+import { HeaderModule } from './shared/header/header.module';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ConfigurationsComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +37,8 @@ import { ConfigurationsComponent } from './pages/configurations/configurations/c
     TaskModule,
     PerfilModule,
     UpdateUserModule,
-    ConfigurationsModule
+    ConfigurationsModule,
+    HeaderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
