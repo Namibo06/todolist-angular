@@ -17,12 +17,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { ConfigurationsModule } from './shared/configurations/configurations.module';
 import { HeaderComponent } from './shared/header/header/header.component';
 import { HeaderModule } from './shared/header/header.module';
+import { ConfigsComponent } from './pages/configs/configs/configs.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +39,8 @@ import { HeaderModule } from './shared/header/header.module';
     PerfilModule,
     UpdateUserModule,
     ConfigurationsModule,
-    HeaderModule
+    HeaderModule,
+    ConfigurationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

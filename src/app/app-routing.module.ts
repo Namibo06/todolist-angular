@@ -5,7 +5,7 @@ import { IndexComponent } from './pages/index/index/index.component';
 import { CreateTaskComponent } from './pages/create-task/create-task/create-task.component';
 import { TaskComponent } from './pages/task/task/task.component';
 import { RouterModule, Routes } from '@angular/router';
-import { ConfigurationsComponent } from './shared/configurations/configurations/configurations.component';
+import { ConfigsComponent } from './pages/configs/configs/configs.component';
 
 const routes: Routes = [
   {
@@ -34,7 +34,7 @@ const routes: Routes = [
   },
   {
     path:'configuracoes',
-    component:ConfigurationsComponent
+    component:ConfigsComponent
   }
 ];
 
