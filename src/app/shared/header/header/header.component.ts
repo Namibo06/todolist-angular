@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { faGear, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { TaskService } from '../../../services/task.service';
@@ -18,6 +18,8 @@ export class HeaderComponent implements OnInit{
   search:string="";
   title:string="";
   tasks:any=[];
+  @Output() eventTask: EventEmitter<any>= new EventEmitter<any>;
+
 
   /**icons */
   searchIcon: IconDefinition=faSearch;
@@ -36,7 +38,6 @@ export class HeaderComponent implements OnInit{
   ngOnInit(){
     this.verifyCredentials();
     this.verifyUser();
-    this.findAllTask();
   }
 
   verifyUser() {
@@ -49,20 +50,6 @@ export class HeaderComponent implements OnInit{
         console.log(err);
       }
     })
-  }
-
-  findAllTask() {
-    this.service.findAllTaskService(this.user_id).subscribe({
-      next: (res) => {
-        this.tasks = res.map((task: any) => {
-          task.showDeleteModal = false;
-          return task;
-        });
-      },
-      error: (err) => {
-        console.error(err);
-      }
-    });
   }
 
   verifyCredentials(){
@@ -80,10 +67,16 @@ export class HeaderComponent implements OnInit{
         console.log("aqui");
         console.log(res);
         this.tasks=res;
+        this.searchTaskFromElementDad(this.tasks);
+
       },
       error: (err) => {
         console.error(err);
       }
     });
+  }
+
+  searchTaskFromElementDad(e:any){
+    this.eventTask.emit(e);
   }
 }

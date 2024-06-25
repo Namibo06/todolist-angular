@@ -1,10 +1,10 @@
 <div class="index-container">
   <header>
-    <app-header></app-header>
+    <app-header (eventTask)="searchTaskByElementSon($event)"></app-header>
   </header>
 
   <main>
-    <div class="tasks" *ngFor="let task of tasks">
+    <div class="tasks" *ngFor="let task of tasksByElementSon">
       <div class="task-single">
         <a [routerLink]="['/task/'+task.id]">
           <div class="title">

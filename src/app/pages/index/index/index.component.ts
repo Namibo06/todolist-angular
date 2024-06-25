@@ -17,7 +17,7 @@ export class IndexComponent implements OnInit{
   token:string|null="";
   search:string="";
   title:string="";
-  tasks:any=[];
+  tasksByElementSon:any=[];
 
   /**icons */
   searchIcon: IconDefinition=faSearch;
@@ -68,7 +68,7 @@ export class IndexComponent implements OnInit{
 
   cancelSubModalDelete(taskId:number){
     this.sub_modal_delete=false;
-    this.tasks = this.tasks.map((task: any) => {
+    this.tasksByElementSon = this.tasksByElementSon.map((task: any) => {
       task.showDeleteModal = false;
       return task;
     });
@@ -81,7 +81,7 @@ export class IndexComponent implements OnInit{
   }
 
   openModalDelete(taskId: number) {
-    this.tasks = this.tasks.map((task: any) => {
+    this.tasksByElementSon = this.tasksByElementSon.map((task: any) => {
       if (task.id === taskId) {
         task.showDeleteModal = !task.showDeleteModal;
       } else {
@@ -94,7 +94,7 @@ export class IndexComponent implements OnInit{
   findAllTask() {
     this.service.findAllTaskService(this.user_id).subscribe({
       next: (res) => {
-        this.tasks = res.map((task: any) => {
+        this.tasksByElementSon = res.map((task: any) => {
           task.showDeleteModal = false;
           return task;
         });
@@ -114,16 +114,7 @@ export class IndexComponent implements OnInit{
     }
   }
 
-  findTasksSearch(search:string) {
-    this.service.findTaskSearchService(search,this.user_id).subscribe({
-      next: (res) => {
-        console.log("aqui");
-        console.log(res);
-        this.tasks=res;
-      },
-      error: (err) => {
-        console.error(err);
-      }
-    });
+  searchTaskByElementSon(e:any){
+    this.tasksByElementSon = e;
   }
 }
