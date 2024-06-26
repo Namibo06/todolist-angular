@@ -2,6 +2,7 @@ import { Component, OnInit, Renderer2 } from '@angular/core';
 import { UserService } from '../../../services/user.service';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-configs',
@@ -23,6 +24,8 @@ export class ConfigsComponent implements OnInit{
   newEmail:string="";
   newUsername:string="";
   modalUpdateUser:boolean=false;
+  usernameLength:number=0;
+  emailLength:number=0;
 
   /*modal update password*/
   newPassword:string="";
@@ -128,40 +131,39 @@ export class ConfigsComponent implements OnInit{
     //throw new Error('Method not implemented.');
   }
 
-  verifySizeUsername() {
+  verifySizeUsername(event:Event):void {
     let usernameLabel = document.getElementById("usernameLabel");
-    let usernameText = document.getElementById("usernameText");
+    const input = event.target as HTMLInputElement;
+    this.usernameLength = input.value.length;
 
-    // Verifica se usernameText existe e obtém seu conteúdo de texto
-    if(usernameText?.textContent !== null){
-      let texto = usernameText ? usernameText.textContent.trim() : "";
-      let quantidadePalavras = texto.split(/\s+/).filter(word => word.length > 0).length;
-
-      if (quantidadePalavras !== undefined) {
-        if (usernameLabel !== null && usernameText !== null) {
-          // Caso geral quando há ou não palavras digitadas
-          usernameLabel.style.position = "relative";
-          usernameLabel.style.top = quantidadePalavras === 0 ? "0px" : "25px";
-          console.log(quantidadePalavras);
-          usernameText.style.backgroundColor = quantidadePalavras === 0 ? "#0000ff" : "#00ff00";
-        } else {
-          // Caso em que usernameLabel ou usernameText é null
-          console.log("Aqui");
-          // Remove a classe "abaixar" se usernameLabel não for null
-          if (usernameLabel) {
-            this.renderer.removeClass(usernameLabel, "abaixar");
-          }
-        }
-      } else {
-        console.log("quantidadePalavras é undefined");
+    if(this.usernameLength === 0){
+      if(usernameLabel !== null){
+        usernameLabel.style.position = "relative";
+        usernameLabel.style.top = "25px";
       }
-
-      console.log(quantidadePalavras);
-      console.log(usernameLabel);
+    }else if(this.usernameLength > 0){
+      if(usernameLabel !== null){
+        usernameLabel.style.position = "relative";
+        usernameLabel.style.top = "0px";
+      }
     }
   }
 
-  verifySizeEmail(){
+  verifySizeEmail(event:Event):void{
+    let emailLabel = document.getElementById("emailLabel");
+    const input = event.target as HTMLInputElement;
+    this.emailLength = input.value.length;
 
+    if(this.emailLength === 0){
+      if(emailLabel !== null){
+        emailLabel.style.position = "relative";
+        emailLabel.style.top = "25px";
+      }
+    }else if(this.emailLength > 0){
+      if(emailLabel !== null){
+        emailLabel.style.position = "relative";
+        emailLabel.style.top = "0px";
+      }
+    }
   }
 }
