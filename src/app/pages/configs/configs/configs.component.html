@@ -1,7 +1,7 @@
 <div class="configurations-container">
   <header>
     <div class="back-page">
-
+      <fa-icon [icon]="backPage"></fa-icon>
     </div><!--back-page-->
   </header>
 
@@ -28,23 +28,26 @@
       <div class="modal-update-user" *ngIf="modalUpdateUser">
         <button type="button" (click)="closeModalUpdateUser()">Fechar Modal</button>
 
-        <h2>Alterar Usuário</h2>
+        <div class="update-user-form">
+          <h2>Alterar Usuário</h2>
 
-        <form action="" (submit)="updateUser()">
-          <div class="camp">
-            <label>Nome de Usuário</label>
+          <form action="" (submit)="updateUser()">
+            <div class="camp">
+              <label>Nome de Usuário</label>
 
-            <input type="text" name="newUsername" [(ngModel)]="newUsername">
-          </div><!--camp-->
+              <input type="text" name="newUsername" [(ngModel)]="newUsername">
+            </div><!--camp-->
 
-          <div class="camp">
-            <label>Email</label>
+            <div class="camp">
+              <label>Email</label>
 
-            <input type="email" name="newEmail" [(ngModel)]="newEmail">
-          </div><!--camp-->
+              <input type="email" name="newEmail" [(ngModel)]="newEmail">
+            </div><!--camp-->
 
-          <button type="submit">Alterar</button>
-        </form>
+            <button type="submit">Alterar</button>
+          </form>
+        </div><!--update-user-form-->
+
       </div><!--modal-update-user-->
     </section><!--update-user-->
 

@@ -1,0 +1,190 @@
+header{
+  padding: 20px;
+
+  div.back-page{
+    fa-icon{
+      font-size: 24px;
+      cursor: pointer;
+    }
+  }
+}
+
+main{
+  section.perfil{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    div.perfil-wraper{
+      position: relative;
+      border-radius: 50%;
+      background-color: #ccc;
+      width: 200px;
+      height: 200px;
+
+      p{
+        position: absolute;
+        top: 55px;
+        left: 75px;
+        font-size: 70px;
+        color: #ffffff;
+      }
+    }
+
+    div.profile-box{
+      div{
+        margin-bottom: 20px;
+
+        &:last-child{
+          margin-bottom: 0px;
+        }
+      }
+    }
+  }
+
+  section{
+    margin-bottom: 20px;
+
+    > button{
+      border: 0;
+      border-radius: 5px;
+      font-size: 18px;
+      padding: 10px;
+      width: 200px;
+      margin-left: 20px;
+      text-align: left;
+      cursor: pointer;
+      background-color: transparent;
+      transition: 0.2s;
+
+      &:hover{
+        background-color: #ccc;
+        color: #fff;
+      }
+    }
+  }
+
+  section.update-user{
+    margin-top: 80px;
+
+    /*filter blur na main blur(5px) com js*/
+    div.modal-update-user{
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.85);
+      color: #fff;
+
+      > button{
+        padding: 10px;
+        border-radius: 10px;
+        background-color: #ff0000;
+        color: #ffffff;
+        border: 0;
+        cursor: pointer;
+        font-size: 16px;
+        letter-spacing: 1px;
+        position: relative;
+        top: 10px;
+        left: 10px;
+
+        &:hover{
+          background-color: rgb(200,0,0);
+        }
+
+        &:active{
+          position: relative;
+          top: 12px;
+        }
+      }
+
+      div.update-user-form{
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 400px;
+        max-width: 95%;
+
+        h2{
+          text-align: center;
+          font-size: 40px;
+          letter-spacing: 2px;
+        }
+
+        form{
+          margin-top: 50px;
+
+          div.camp{
+            margin-bottom: 20px;
+
+            &:last-child{
+              margin-bottom: 0;
+            }
+
+            label{
+              position: relative;
+              top: 25px;
+              font-size: 18px;
+              transition: top 0.3s ease;
+            }
+
+            input{
+              padding: 10px 15px;
+              width: 100%;
+              outline: 0;
+              border-bottom: 1px solid #ffffff;
+              border-top: 0;
+              border-left: 0;
+              border-right: 0;
+              background-color: transparent;
+              color: #ffffff;
+
+              &:focus{
+                border-bottom: 1px solid rgb(0,200,200);
+              }
+
+              &:focus + label,
+              &:not(:placeholder-shown) + label {
+                top: 0;
+              }
+            }
+
+            &:focus-within label {
+              top: 0;
+            }
+          }
+
+          button[type=submit]{
+            padding: 10px;
+            border-radius: 30px;
+            background-color: rgb(0,200,200);
+            color: #ffffff;
+            margin-top: 30px;
+            border: 0;
+            font-size: 18px;
+            width: 150px;
+            cursor: pointer;
+            letter-spacing: 1px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+
+            &:hover{
+              background-color: rgb(0,220,220);
+            }
+
+            &:active{
+              position: relative;
+              top: 2px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

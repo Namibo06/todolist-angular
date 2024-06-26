@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../services/user.service';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-configs',
@@ -29,6 +31,9 @@ export class ConfigsComponent implements OnInit{
 
   /*modal remove user*/
   modalRemoveUser:boolean=false;
+
+  /*icons*/
+  backPage:IconDefinition=faArrowLeft;
 
   constructor(
     private service:UserService
