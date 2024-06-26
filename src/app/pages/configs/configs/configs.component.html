@@ -1,7 +1,93 @@
 <div class="configurations-container">
-  <div class="perfil">
-    <div class="perfil-wraper">
-      <p>{{username_first_letter}}</p>
-    </div><!--perfil-wraper-->
-  </div><!--perfil-->
+  <header>
+    <div class="back-page">
+
+    </div><!--back-page-->
+  </header>
+
+  <main>
+    <section class="perfil">
+      <div class="perfil-wraper">
+        <p>{{username_first_letter}}</p>
+      </div><!--perfil-wraper-->
+
+      <div class="profile-box">
+        <div class="username">
+          <p>{{username}}</p>
+        </div><!--username-->
+
+        <div class="email">
+          <p>{{email}}</p>
+        </div><!--email-->
+      </div><!--profile-box-->
+    </section><!--perfil-->
+
+    <section class="update-user">
+      <button type="button" (click)="openModalUpdateUser()">Alterar Usuário</button>
+
+      <div class="modal-update-user" *ngIf="modalUpdateUser">
+        <button type="button" (click)="closeModalUpdateUser()">Fechar Modal</button>
+
+        <h2>Alterar Usuário</h2>
+
+        <form action="" (submit)="updateUser()">
+          <div class="camp">
+            <label>Nome de Usuário</label>
+
+            <input type="text" name="username" [(ngModel)]="username">
+          </div><!--camp-->
+
+          <div class="camp">
+            <label>Email</label>
+
+            <input type="email" name="email" [(ngModel)]="email">
+          </div><!--camp-->
+
+          <button type="submit">Alterar</button>
+        </form>
+      </div><!--modal-update-user-->
+    </section><!--update-user-->
+
+    <section class="update-password">
+      <button type="button" (click)="openModalUpdatePassword()">Alterar Senha</button>
+
+      <div class="modal-update-password" *ngIf="modalUpdatePassword">
+        <button type="button" (click)="closeModalUpdatePassword()">Fechar Modal</button>
+
+        <h2>Alterar Senha</h2>
+
+        <form action="" (submit)="updatePassword()">
+          <div class="camp">
+            <label>Nova Senha</label>
+
+            <input type="text" [(ngModel)]="newPassword">
+            <fa-icon></fa-icon>
+          </div><!--camp-->
+
+          <div class="camp">
+            <label>Confirmar Nova Senha</label>
+
+            <input type="text" [(ngModel)]="newConfirmPassword">
+            <fa-icon></fa-icon>
+          </div><!--camp-->
+
+          <button type="submit">Alterar</button>
+        </form>
+      </div><!--modal-update-password-->
+    </section><!--update-password-->
+
+    <section class="remove-user">
+      <button type="button" (click)="openModalRemoveUser()">Remover Usuário</button>
+
+      <div class="modal-remove-user" *ngIf="modalRemoveUser">
+        <button type="button" (click)="closeModalRemoveUser()">Fechar Modal</button>
+
+        <h2>Excluir o usuário permanentemente?</h2>
+
+        <form action="" (submit)="removeUser()">
+          <button type="submit">Excluir</button>
+        </form>
+      </div><!--modal-remove-user-->
+    </section><!--remove-user-->
+  </main>
 </div><!--configurations-container-->

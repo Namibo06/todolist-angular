@@ -15,9 +15,8 @@ import { PerfilModule } from './pages/perfil/perfil.module';
 import { UpdateUserModule } from './pages/update-user/update-user.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ConfigurationsModule } from './shared/configurations/configurations.module';
-import { HeaderComponent } from './shared/header/header/header.component';
 import { HeaderModule } from './shared/header/header.module';
-import { ConfigsComponent } from './pages/configs/configs/configs.component';
+import { ConfigsModule } from './pages/configs/configs.module';
 
 
 
@@ -40,7 +39,7 @@ import { ConfigsComponent } from './pages/configs/configs/configs.component';
     UpdateUserModule,
     ConfigurationsModule,
     HeaderModule,
-    ConfigurationsModule
+    ConfigsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

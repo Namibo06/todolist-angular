@@ -7,14 +7,26 @@ import { UserService } from '../../../services/user.service';
   styleUrl: './configs.component.scss'
 })
 export class ConfigsComponent implements OnInit{
+
   /*data */
   email:string="";
   password:string="";
   username_first_letter:string="";
+  username:string="";
 
   /*localstorage */
-  username:string|null="";
   user_id:string|null="";
+
+  /*modal update user */
+  modalUpdateUser:boolean=false;
+
+  /*modal update password*/
+  newPassword:string="";
+  newConfirmPassword:string="";
+  modalUpdatePassword:boolean=false;
+
+  /*modal remove user*/
+  modalRemoveUser:boolean=false;
 
   constructor(
     private service:UserService
@@ -26,7 +38,6 @@ export class ConfigsComponent implements OnInit{
   }
 
   getDataLocalStorage(){
-    this.username=localStorage.getItem("username");
     this.user_id=localStorage.getItem("user_id");
   }
 
@@ -36,6 +47,7 @@ export class ConfigsComponent implements OnInit{
         console.log(res);
         this.password=res.password;
         this.email=res.email;
+        this.username=res.username;
         const username_format = res.username.charAt(0);
         this.username_first_letter=username_format;
       },
@@ -43,5 +55,52 @@ export class ConfigsComponent implements OnInit{
         console.log(err);
       }
     });
+  }
+
+  openModalUpdateUser(){
+    this.modalUpdateUser=true;
+  }
+
+  closeModalUpdateUser(){
+    this.modalUpdateUser=false;
+  }
+
+  updateUser() {
+    //throw new Error('Method not implemented.');
+  }
+
+  openModalUpdatePassword() {
+    this.modalUpdatePassword=true;
+  }
+
+  closeModalUpdatePassword() {
+    this.modalUpdatePassword=false;
+  }
+
+  updatePassword() {
+    this.service.updateUserById(this.user_id,this.username,this.email).subscribe({
+      next:(res)=>{
+        console.log(res);
+
+        setTimeout(() => {
+          window.location.href="/configuracoes";
+        }, 2000);
+      },
+      error:(err)=>{
+        console.log(err);
+      }
+    })
+  }
+
+  openModalRemoveUser() {
+    this.modalRemoveUser=true;
+  }
+
+  closeModalRemoveUser() {
+    this.modalRemoveUser=false;
+  }
+
+  removeUser() {
+    //throw new Error('Method not implemented.');
   }
 }

@@ -14,6 +14,8 @@ export class UserService {
   urlAuthUser: string="https://api-restfull-todolist-springboot-production.up.railway.app/users/login";
   urlFindUserByToken:string="https://api-restfull-todolist-springboot-production.up.railway.app/users/findUser/";
   urlFindUserById:string="https://api-restfull-todolist-springboot-production.up.railway.app/users/";
+  urlUpdateUserById:string="https://api-restfull-todolist-springboot-production.up.railway.app/users/updateUser/";
+  urlUpdatePasswordUserById:string="https://api-restfull-todolist-springboot-production.up.railway.app/users/updatePassword/";
 
   constructor(
     private http:HttpClient
@@ -44,5 +46,14 @@ export class UserService {
     };
 
     return this.http.post<token_login>(this.urlAuthUser,body);
+  }
+
+  updateUserById(user_id:string|null,username:string,email:string):Observable<message_status>{
+    const body={
+      "username":username,
+      "email":email
+    };
+
+    return this.http.patch<message_status>(this.urlUpdateUserById+user_id,body);
   }
 }
