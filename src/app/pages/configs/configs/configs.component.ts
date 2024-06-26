@@ -10,7 +10,6 @@ import { FormGroup } from '@angular/forms';
   styleUrl: './configs.component.scss'
 })
 export class ConfigsComponent implements OnInit{
-
   /*data */
   email:string="";
   password:string="";
@@ -26,6 +25,8 @@ export class ConfigsComponent implements OnInit{
   modalUpdateUser:boolean=false;
   usernameLength:number=0;
   emailLength:number=0;
+  newPasswordLength:number=0;
+  confirmNewPasswordLength:number=0;
 
   /*modal update password*/
   newPassword:string="";
@@ -163,6 +164,42 @@ export class ConfigsComponent implements OnInit{
       if(emailLabel !== null){
         emailLabel.style.position = "relative";
         emailLabel.style.top = "0px";
+      }
+    }
+  }
+
+  verifySizeNewPassword(event: Event):void {
+    let newPasswordLabel = document.getElementById("newPasswordLabel");
+    const input = event.target as HTMLInputElement;
+    this.newPasswordLength = input.value.length;
+
+    if(this.newPasswordLength === 0){
+      if(newPasswordLabel !== null){
+        newPasswordLabel.style.position = "relative";
+        newPasswordLabel.style.top = "25px";
+      }
+    }else if(this.newPasswordLength > 0){
+      if(newPasswordLabel !== null){
+        newPasswordLabel.style.position = "relative";
+        newPasswordLabel.style.top = "0px";
+      }
+    }
+  }
+
+  verifySizeConfirmNewPassword(event: Event) {
+    let confirmNewPasswordLabel = document.getElementById("confirmNewPasswordLabel");
+    const input = event.target as HTMLInputElement;
+    this.confirmNewPasswordLength = input.value.length;
+
+    if(this.confirmNewPasswordLength === 0){
+      if(confirmNewPasswordLabel !== null){
+        confirmNewPasswordLabel.style.position = "relative";
+        confirmNewPasswordLabel.style.top = "25px";
+      }
+    }else if(this.confirmNewPasswordLength > 0){
+      if(confirmNewPasswordLabel !== null){
+        confirmNewPasswordLabel.style.position = "relative";
+        confirmNewPasswordLabel.style.top = "0px";
       }
     }
   }

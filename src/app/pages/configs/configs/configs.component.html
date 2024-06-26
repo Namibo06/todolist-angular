@@ -1,4 +1,4 @@
-<div class="configurations-container">
+<div class="configurations-container" id="container">
   <header>
     <div class="back-page">
       <button type="button" onclick="return history.back(-1)">
@@ -27,7 +27,7 @@
     <section class="update-user">
       <button type="button" (click)="openModalUpdateUser()">Alterar Usuário</button>
 
-      <div class="modal-update-user" *ngIf="modalUpdateUser">
+      <div class="modal-update-user" *ngIf="modalUpdateUser" id="modal-update-user">
         <button type="button" (click)="closeModalUpdateUser()">Fechar Modal</button>
 
         <div class="update-user-form">
@@ -59,25 +59,30 @@
       <div class="modal-update-password" *ngIf="modalUpdatePassword">
         <button type="button" (click)="closeModalUpdatePassword()">Fechar Modal</button>
 
-        <h2>Alterar Senha</h2>
+        <div class="update-password-form">
+          <h2>Alterar Senha</h2>
 
-        <form action="" (submit)="updatePassword()">
-          <div class="camp">
-            <label>Nova Senha</label>
+          <form action="" (submit)="updatePassword()">
+            <div class="camp">
+              <label id="newPasswordLabel">Nova Senha</label>
 
-            <input type="text" [(ngModel)]="newPassword">
-            <fa-icon></fa-icon>
-          </div><!--camp-->
+              <input type="text" name="newPassword" [(ngModel)]="newPassword" (input)="verifySizeNewPassword($event)">
 
-          <div class="camp">
-            <label>Confirmar Nova Senha</label>
+              <fa-icon></fa-icon>
+            </div><!--camp-->
 
-            <input type="text" [(ngModel)]="newConfirmPassword">
-            <fa-icon></fa-icon>
-          </div><!--camp-->
+            <div class="camp">
+              <label id="confirmNewPasswordLabel">Confirmar Nova Senha</label>
 
-          <button type="submit">Alterar</button>
-        </form>
+              <input type="text" name="newConfirmPassword" [(ngModel)]="newConfirmPassword" (input)="verifySizeConfirmNewPassword($event)">
+
+              <fa-icon></fa-icon>
+            </div><!--camp-->
+
+            <button type="submit">Alterar</button>
+          </form>
+        </div><!--update-password-form-->
+
       </div><!--modal-update-password-->
     </section><!--update-password-->
 
@@ -87,11 +92,14 @@
       <div class="modal-remove-user" *ngIf="modalRemoveUser">
         <button type="button" (click)="closeModalRemoveUser()">Fechar Modal</button>
 
-        <h2>Excluir o usuário permanentemente?</h2>
+        <div class="remove-user-form">
+          <h2>Excluir o usuário permanentemente?</h2>
 
-        <form action="" (submit)="removeUser()">
-          <button type="submit">Excluir</button>
-        </form>
+          <form action="" (submit)="removeUser()">
+            <button type="submit">Excluir</button>
+          </form>
+        </div><!--remove-user-form-->
+
       </div><!--modal-remove-user-->
     </section><!--remove-user-->
   </main>
