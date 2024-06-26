@@ -1,7 +1,9 @@
 <div class="configurations-container">
   <header>
     <div class="back-page">
-      <fa-icon [icon]="backPage"></fa-icon>
+      <button type="button" onclick="return history.back(-1)">
+        <fa-icon [icon]="backPage"></fa-icon>
+      </button>
     </div><!--back-page-->
   </header>
 
@@ -33,15 +35,15 @@
 
           <form action="" (submit)="updateUser()">
             <div class="camp">
-              <label>Nome de Usuário</label>
+              <label id="usernameLabel">Nome de Usuário</label>
 
-              <input type="text" name="newUsername" [(ngModel)]="newUsername">
+              <input type="text" id="usernameText" name="newUsername" [(ngModel)]="newUsername" (change)="verifySizeUsername()">
             </div><!--camp-->
 
             <div class="camp">
-              <label>Email</label>
+              <label id="emailLabel">Email</label>
 
-              <input type="email" name="newEmail" [(ngModel)]="newEmail">
+              <input type="email" id="emailText" name="newEmail" [(ngModel)]="newEmail" (change)="verifySizeEmail()">
             </div><!--camp-->
 
             <button type="submit">Alterar</button>

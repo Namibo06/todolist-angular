@@ -9,6 +9,6 @@
 //update-task V
 //delete-task v
 
-//ver questão de por background como rgba(0,0,0,0.2) em toda a tela,enquanto na index estiver aberto o botão
+//por um blur(5px) na main do configurations
 
-//ver que separei o header da index,então findTasksBySearch é diferente agora tem que passar de filho pra pai
+//refatorar a parte do label com input

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { UserService } from '../../../services/user.service';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
@@ -36,7 +36,8 @@ export class ConfigsComponent implements OnInit{
   backPage:IconDefinition=faArrowLeft;
 
   constructor(
-    private service:UserService
+    private service:UserService,
+    private renderer:Renderer2
   ){}
 
   ngOnInit(){
@@ -125,5 +126,42 @@ export class ConfigsComponent implements OnInit{
 
   removeUser() {
     //throw new Error('Method not implemented.');
+  }
+
+  verifySizeUsername() {
+    let usernameLabel = document.getElementById("usernameLabel");
+    let usernameText = document.getElementById("usernameText");
+
+    // Verifica se usernameText existe e obtém seu conteúdo de texto
+    if(usernameText?.textContent !== null){
+      let texto = usernameText ? usernameText.textContent.trim() : "";
+      let quantidadePalavras = texto.split(/\s+/).filter(word => word.length > 0).length;
+
+      if (quantidadePalavras !== undefined) {
+        if (usernameLabel !== null && usernameText !== null) {
+          // Caso geral quando há ou não palavras digitadas
+          usernameLabel.style.position = "relative";
+          usernameLabel.style.top = quantidadePalavras === 0 ? "0px" : "25px";
+          console.log(quantidadePalavras);
+          usernameText.style.backgroundColor = quantidadePalavras === 0 ? "#0000ff" : "#00ff00";
+        } else {
+          // Caso em que usernameLabel ou usernameText é null
+          console.log("Aqui");
+          // Remove a classe "abaixar" se usernameLabel não for null
+          if (usernameLabel) {
+            this.renderer.removeClass(usernameLabel, "abaixar");
+          }
+        }
+      } else {
+        console.log("quantidadePalavras é undefined");
+      }
+
+      console.log(quantidadePalavras);
+      console.log(usernameLabel);
+    }
+  }
+
+  verifySizeEmail(){
+
   }
 }
