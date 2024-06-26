@@ -56,4 +56,12 @@ export class UserService {
 
     return this.http.patch<message_status>(this.urlUpdateUserById+user_id,body);
   }
+
+  updatePasswordUserById(user_id:string|null,password:string):Observable<message_status>{
+    const body={
+      "password":password
+    };
+
+    return this.http.patch<message_status>(this.urlUpdatePasswordUserById+user_id,body);
+  }
 }

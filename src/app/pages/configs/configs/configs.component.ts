@@ -18,6 +18,8 @@ export class ConfigsComponent implements OnInit{
   user_id:string|null="";
 
   /*modal update user */
+  newEmail:string="";
+  newUsername:string="";
   modalUpdateUser:boolean=false;
 
   /*modal update password*/
@@ -44,7 +46,7 @@ export class ConfigsComponent implements OnInit{
   getUser(){
     this.service.findUser(this.user_id).subscribe({
       next:(res)=>{
-        console.log(res);
+        //console.log(res);
         this.password=res.password;
         this.email=res.email;
         this.username=res.username;
@@ -66,7 +68,18 @@ export class ConfigsComponent implements OnInit{
   }
 
   updateUser() {
-    //throw new Error('Method not implemented.');
+    this.service.updateUserById(this.user_id,this.username,this.email).subscribe({
+      next:(res)=>{
+        console.log(res);
+
+        setTimeout(() => {
+          window.location.href="/configuracoes";
+        }, 2000);
+      },
+      error:(err)=>{
+        console.log(err);
+      }
+    })
   }
 
   openModalUpdatePassword() {
@@ -78,7 +91,12 @@ export class ConfigsComponent implements OnInit{
   }
 
   updatePassword() {
-    this.service.updateUserById(this.user_id,this.username,this.email).subscribe({
+    if(this.newPassword !== this.newConfirmPassword){
+      console.log("Senhas não batem");
+      return;
+    }
+
+    this.service.updatePasswordUserById(this.user_id,this.password).subscribe({
       next:(res)=>{
         console.log(res);
 
