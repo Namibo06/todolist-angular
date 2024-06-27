@@ -44,6 +44,7 @@ export class IndexComponent implements OnInit{
   verifyUser() {
     this.userService.verifyTokenService(this.token).subscribe({
       next:(res)=>{
+        localStorage.removeItem("user_id");
         this.user_id=res.id.toString();
         localStorage.setItem("user_id",this.user_id);
       },
@@ -56,7 +57,6 @@ export class IndexComponent implements OnInit{
   deleteTask(task_id:number){
     this.service.deleteTask(task_id).subscribe({
       next:(res)=>{
-        console.log(res);
         this.btn_delete_task=true;
         window.location.href="/index";
       },

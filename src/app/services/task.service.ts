@@ -35,8 +35,6 @@ export class TaskService {
     return this.http.get<create_task>(this.urlTaskFindById+task_id);
   }
 
-
-
   findAllTaskService(user_id:string|null):Observable<findAll>{
     return this.http.get<findAll>(this.urlTaskFindAll+user_id);
   }
