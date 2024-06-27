@@ -1,24 +1,51 @@
+$fontSize30: 30px;
+
+@media screen and (width < 480px) {
+  section.remove-user{
+    div.remove-user-form{
+      h2{
+        font-size: $fontSize30 !important;
+      }
+    }
+  }
+}
+
 @media screen and (width < 360px) {
   section.perfil{
     flex-direction: column !important;
     justify-content: center !important;
 
-    div.perfil-wraper{
-      p{
-        position: absolute;
-        top: 55px;
-        left: 75px;
-        font-size: 70px;
-        color: #ffffff;
-      }
-    }
-
     div.profile-box{
       margin-top: 40px !important;
     }
+  }
 
-    section.add-task{
-      margin-top: 0px !important;
+  section.add-task{
+    margin-top: 50px !important;
+  }
+
+  section.update-user{
+    div.update-user-form{
+      h2{
+        font-size: $fontSize30 !important;
+      }
     }
   }
+
+  section.update-password{
+    div.update-password-form{
+      h2{
+        font-size: $fontSize30 !important;
+      }
+    }
+  }
+
+  section.remove-user{
+    div.remove-user-form{
+      h2{
+        font-size: 25px !important;
+      }
+    }
+  }
+
 }
