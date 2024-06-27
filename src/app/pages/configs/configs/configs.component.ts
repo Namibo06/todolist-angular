@@ -60,6 +60,7 @@ export class ConfigsComponent implements OnInit{
         this.password=res.password;
         this.email=res.email;
         this.username=res.username;
+
         const username_format = res.username.charAt(0);
         this.username_first_letter=username_format.toUpperCase();
       },
@@ -78,7 +79,7 @@ export class ConfigsComponent implements OnInit{
   }
 
   updateUser() {
-    this.service.updateUserById(this.user_id,this.username,this.email).subscribe({
+    this.service.updateUserById(this.user_id,this.newUsername,this.newEmail).subscribe({
       next:(res)=>{
         console.log(res);
 
@@ -106,7 +107,7 @@ export class ConfigsComponent implements OnInit{
       return;
     }
 
-    this.service.updatePasswordUserById(this.user_id,this.password).subscribe({
+    this.service.updatePasswordUserById(this.user_id,this.newPassword).subscribe({
       next:(res)=>{
         console.log(res);
 
@@ -129,7 +130,16 @@ export class ConfigsComponent implements OnInit{
   }
 
   removeUser() {
-    //throw new Error('Method not implemented.');
+    this.service.removeUserService(this.user_id).subscribe({
+      next:(res)=>{
+        setTimeout(() => {
+          window.location.href="/";
+        }, 2000);
+      },
+      error:(err)=>{
+        console.log(err);
+      }
+    })
   }
 
   verifySizeUsername(event:Event):void {

@@ -54,7 +54,7 @@ export class UserService {
       "email":email
     };
 
-    return this.http.patch<message_status>(this.urlUpdateUserById+user_id,body);
+    return this.http.put<message_status>(this.urlUpdateUserById+user_id,body);
   }
 
   updatePasswordUserById(user_id:string|null,password:string):Observable<message_status>{
@@ -62,6 +62,10 @@ export class UserService {
       "password":password
     };
 
-    return this.http.patch<message_status>(this.urlUpdatePasswordUserById+user_id,body);
+    return this.http.put<message_status>(this.urlUpdatePasswordUserById+user_id,body);
+  }
+
+  removeUserService(user_id:string|null){
+    return this.http.delete(this.urlCreateUser+"/"+user_id);
   }
 }
