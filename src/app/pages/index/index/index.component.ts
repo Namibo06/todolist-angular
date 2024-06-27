@@ -38,7 +38,6 @@ export class IndexComponent implements OnInit{
   ngOnInit(){
     this.verifyCredentials();
     this.verifyUser();
-    this.findAllTask();
   }
 
   verifyUser() {
@@ -47,6 +46,8 @@ export class IndexComponent implements OnInit{
         localStorage.removeItem("user_id");
         this.user_id=res.id.toString();
         localStorage.setItem("user_id",this.user_id);
+
+        this.findAllTask();
       },
       error:(err)=>{
         console.log(err);

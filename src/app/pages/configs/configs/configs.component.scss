@@ -81,16 +81,28 @@ main{
     }
   }
 
-  section.update-user{
+  section.add-task{
     margin-top: 80px;
 
+    button{
+      a{
+        text-decoration: none;
+        color: #000;
+      }
+
+      &:hover a{
+        color: #fff;
+      }
+    }
+  }
+
+  section.update-user{
     /*filter blur na main blur(5px) com js*/
     div.modal-update-user{
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%,-50%);
-      z-index: 1000; /* Acima da camada de desfoque */
       width: 100%;
       height: 100%;
       background-color: rgba(0,0,0,0.85);

@@ -12,6 +12,7 @@ import { UserService } from '../../../services/user.service';
 export class LoginComponent {
   /**data */
   id:number=0;
+  user_id:number=0;
   username:string="";
   email: string="";
   password: string="";
@@ -38,10 +39,13 @@ export class LoginComponent {
     this.service.authUserService(this.email,this.password).subscribe({
       next:(res)=>{
         console.log(res);
+        localStorage.removeItem("token");
+        localStorage.removeItem("user_id");
 
         this.successCallback=true;
         this.messageSuccess="Usuário Autenticado";
         localStorage.setItem("token",res.token);
+        localStorage.setItem("user_id",this.user_id.toString());
 
         setTimeout(() => {
           this.successCallback=false;
