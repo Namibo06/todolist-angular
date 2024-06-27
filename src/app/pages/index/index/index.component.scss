@@ -1,3 +1,18 @@
+$colorPurple: rgb(12,14,90);
+$colorBlack100: #000000;
+$colorBlack90: rgb(0,0,0,0.90);
+$colorRed: #ff0000;
+$colorTransparent: transparent;
+$colorGray: #bba6a6;
+$colorBlack70: rgb(0,0,0,0.7);
+$colorWhite: #ffffff;
+
+.flexRowCenter{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 div.index-container{
   overflow-y: auto;
 }
@@ -7,16 +22,14 @@ main{
 
   div.tasks{
     div.task-single{
-      display: flex;
-      flex-direction: row;
+      @extend .flexRowCenter;
       justify-content: space-between;
-      align-items: center;
       padding: 0px 20px 0px 10px;
-      border-bottom: 1px solid rgb(12,14,90);
+      border-bottom: 1px solid $colorPurple;
 
       a{
         text-decoration: none;
-        color: #000;
+        color: $colorBlack100;
 
         div.title{
           width: 90vw;
@@ -27,13 +40,13 @@ main{
     }
 
     &:first-child{
-      border-top: 1px solid rgb(12,14,90);
+      border-top: 1px solid $colorPurple;
     }
 
     div.actions{
       button{
         border: 0;
-        background-color: transparent;
+        background-color: $colorTransparent;
 
         fa-icon{
           font-size: 24px;
@@ -47,11 +60,9 @@ main{
       right: 60px;
 
       button{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        background-color: rgba(0,0,0,0.90);
-        color: #ff0000;
+        @extend .flexRowCenter;
+        background-color: $colorBlack90;
+        color: $colorRed;
         padding: 5px;
         border-radius: 5px;
         border: 0;
@@ -66,7 +77,7 @@ main{
         fa-icon{
           margin-right: 5px;
           font-size: 17px;
-          color: #ff0000;
+          color: $colorRed;
         }
       }
 
@@ -74,8 +85,8 @@ main{
         margin: 0 auto;
         width: 300px;
         height: 80px;
-        background-color: rgba(0,0,0,0.7);
-        color: #fff;
+        background-color: $colorBlack70;
+        color: $colorWhite;
 
         p{
           text-align: center;
@@ -83,10 +94,8 @@ main{
         }
 
         div.buttons{
-          display: flex;
-          flex-direction: row;
+          @extend .flexRowCenter;
           justify-content: space-around;
-          align-items: center;
           padding: 20px 20px 0px 20px;
 
           button{
@@ -94,11 +103,11 @@ main{
             letter-spacing: 0.5px;
 
             &:nth-child(1){
-              background-color: #ff0000;
+              background-color: $colorRed;
             }
 
             &:nth-child(2){
-              background-color: #bba6a6;
+              background-color: $colorGray;
             }
           }
         }
