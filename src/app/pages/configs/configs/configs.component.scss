@@ -1,10 +1,139 @@
+$margin20: 20px;
+$colorTransparent: transparent;
+$colorGray: #ccc;
+$colorWhite: #ffffff;
+$colorRed: #ff0000;
+$colorBlack85: rgba(0,0,0,0.85);
+$colorBlack100: #000000;
+$colorGreenBlue200: rgb(0,200,200);
+$colorGreenBlue220: rgb(0,220,220);
+
+.section-default{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  background-color: $colorBlack85;
+  color: $colorWhite;
+
+  > button{
+    padding: 10px;
+    border-radius: 10px;
+    background-color: $colorRed;
+    color: $colorWhite;
+    border: 0;
+    cursor: pointer;
+    font-size: 16px;
+    letter-spacing: 1px;
+    position: relative;
+    top: 10px;
+    left: 10px;
+
+    &:hover{
+      background-color: $colorRed;
+    }
+
+    &:active{
+      position: relative;
+      top: 12px;
+    }
+  }
+}
+
+
+.div-form{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 400px;
+  max-width: 95%;
+
+  h2{
+    text-align: center;
+    font-size: 40px;
+    letter-spacing: 2px;
+  }
+
+  form{
+    margin-top: 50px;
+
+    div.camp{
+      margin-bottom: 40px;
+
+      &:last-child{
+        margin-bottom: 0;
+      }
+
+      label{
+        position: relative;
+        top: 25px;
+        font-size: 18px;
+        transition: top 0.3s ease;
+      }
+
+      input{
+        padding: 10px 15px;
+        width: 100%;
+        outline: 0;
+        border-bottom: 1px solid $colorWhite;
+        border-top: 0;
+        border-left: 0;
+        border-right: 0;
+        background-color: $colorTransparent;
+        color: $colorWhite;
+
+        &:focus{
+          border-bottom: 1px solid $colorGreenBlue200;
+        }
+
+        &:focus + label,
+        &:not(:placeholder-shown) + label {
+          top: 0;
+        }
+      }
+
+      &:focus-within label {
+        top: 0;
+      }
+    }
+
+    button[type=submit]{
+      padding: 10px;
+      border-radius: 30px;
+      background-color: $colorGreenBlue200;
+      color: #ffffff;
+      margin-top: 30px;
+      border: 0;
+      font-size: 18px;
+      width: 150px;
+      cursor: pointer;
+      letter-spacing: 1px;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+
+      &:hover{
+        background-color: $colorGreenBlue220;
+      }
+
+      &:active{
+        position: relative;
+        top: 2px;
+      }
+    }
+  }
+}
+
 header{
   padding: 20px;
 
   div.back-page{
     button{
       border: 0;
-      background-color: transparent;
+      background-color: $colorTransparent;
 
       fa-icon{
         font-size: 24px;
@@ -24,7 +153,7 @@ main{
     div.perfil-wraper{
       position: relative;
       border-radius: 50%;
-      background-color: #ccc;
+      background-color: $colorGray;
       width: 200px;
       height: 200px;
 
@@ -33,14 +162,14 @@ main{
         top: 55px;
         left: 75px;
         font-size: 70px;
-        color: #ffffff;
+        color: $colorWhite;
 
       }
     }
 
     div.profile-box{
       div{
-        margin-bottom: 20px;
+        margin-bottom: $margin20;
 
         &:last-child{
           margin-bottom: 0px;
@@ -50,13 +179,13 @@ main{
   }
 
   section{
-    margin-bottom: 20px;
+    margin-bottom: $margin20;
 
     &:last-child{
 
       > button{
         &:hover{
-          background-color: #ff0000;
+          background-color: $colorRed;
         }
       }
 
@@ -68,15 +197,15 @@ main{
       font-size: 18px;
       padding: 10px;
       width: 200px;
-      margin-left: 20px;
+      margin-left: $margin20;
       text-align: left;
       cursor: pointer;
-      background-color: transparent;
+      background-color: $colorTransparent;
       transition: 0.2s;
 
       &:hover{
-        background-color: #ccc;
-        color: #fff;
+        background-color: $colorGray;
+        color: $colorWhite;
       }
     }
   }
@@ -87,11 +216,11 @@ main{
     button{
       a{
         text-decoration: none;
-        color: #000;
+        color: $colorBlack100;
       }
 
       &:hover a{
-        color: #fff;
+        color: $colorWhite;
       }
     }
   }
@@ -99,360 +228,30 @@ main{
   section.update-user{
     /*filter blur na main blur(5px) com js*/
     div.modal-update-user{
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%,-50%);
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.85);
-      color: #fff;
-
-      > button{
-        padding: 10px;
-        border-radius: 10px;
-        background-color: #ff0000;
-        color: #ffffff;
-        border: 0;
-        cursor: pointer;
-        font-size: 16px;
-        letter-spacing: 1px;
-        position: relative;
-        top: 10px;
-        left: 10px;
-
-        &:hover{
-          background-color: rgb(200,0,0);
-        }
-
-        &:active{
-          position: relative;
-          top: 12px;
-        }
-      }
+      @extend .section-default;
 
       div.update-user-form{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        width: 400px;
-        max-width: 95%;
-
-        h2{
-          text-align: center;
-          font-size: 40px;
-          letter-spacing: 2px;
-        }
-
-        form{
-          margin-top: 50px;
-
-          div.camp{
-            margin-bottom: 40px;
-
-            &:last-child{
-              margin-bottom: 0;
-            }
-
-            label{
-              position: relative;
-              top: 25px;
-              font-size: 18px;
-              transition: top 0.3s ease;
-            }
-
-            input{
-              padding: 10px 15px;
-              width: 100%;
-              outline: 0;
-              border-bottom: 1px solid #ffffff;
-              border-top: 0;
-              border-left: 0;
-              border-right: 0;
-              background-color: transparent;
-              color: #ffffff;
-
-              &:focus{
-                border-bottom: 1px solid rgb(0,200,200);
-              }
-
-              &:focus + label,
-              &:not(:placeholder-shown) + label {
-                top: 0;
-              }
-            }
-
-            &:focus-within label {
-              top: 0;
-            }
-          }
-
-          button[type=submit]{
-            padding: 10px;
-            border-radius: 30px;
-            background-color: rgb(0,200,200);
-            color: #ffffff;
-            margin-top: 30px;
-            border: 0;
-            font-size: 18px;
-            width: 150px;
-            cursor: pointer;
-            letter-spacing: 1px;
-            position: relative;
-            left: 50%;
-            transform: translateX(-50%);
-
-            &:hover{
-              background-color: rgb(0,220,220);
-            }
-
-            &:active{
-              position: relative;
-              top: 2px;
-            }
-          }
-        }
+        @extend .div-form
       }
     }
   }
 
   section.update-password{
     div.modal-update-password{
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%,-50%);
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.85);
-      color: #fff;
-
-      > button{
-        padding: 10px;
-        border-radius: 10px;
-        background-color: #ff0000;
-        color: #ffffff;
-        border: 0;
-        cursor: pointer;
-        font-size: 16px;
-        letter-spacing: 1px;
-        position: relative;
-        top: 10px;
-        left: 10px;
-
-        &:hover{
-          background-color: rgb(200,0,0);
-        }
-
-        &:active{
-          position: relative;
-          top: 12px;
-        }
-      }
+      @extend .section-default;
 
       div.update-password-form{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        width: 400px;
-        max-width: 95%;
-
-        h2{
-          text-align: center;
-          font-size: 40px;
-          letter-spacing: 2px;
-        }
-
-        form{
-          margin-top: 50px;
-
-          div.camp{
-            margin-bottom: 40px;
-
-            &:last-child{
-              margin-bottom: 0;
-            }
-
-            label{
-              position: relative;
-              top: 25px;
-              font-size: 18px;
-              transition: top 0.3s ease;
-            }
-
-            input{
-              padding: 10px 15px;
-              width: 100%;
-              outline: 0;
-              border-bottom: 1px solid #ffffff;
-              border-top: 0;
-              border-left: 0;
-              border-right: 0;
-              background-color: transparent;
-              color: #ffffff;
-
-              &:focus{
-                border-bottom: 1px solid rgb(0,200,200);
-              }
-
-              &:focus + label,
-              &:not(:placeholder-shown) + label {
-                top: 0;
-              }
-            }
-
-            &:focus-within label {
-              top: 0;
-            }
-          }
-
-          button[type=submit]{
-            padding: 10px;
-            border-radius: 30px;
-            background-color: rgb(0,200,200);
-            color: #ffffff;
-            margin-top: 30px;
-            border: 0;
-            font-size: 18px;
-            width: 150px;
-            cursor: pointer;
-            letter-spacing: 1px;
-            position: relative;
-            left: 50%;
-            transform: translateX(-50%);
-
-            &:hover{
-              background-color: rgb(0,220,220);
-            }
-
-            &:active{
-              position: relative;
-              top: 2px;
-            }
-          }
-        }
+        @extend .div-form;
       }
     }
   }
 
   section.remove-user{
     div.modal-remove-user{
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%,-50%);
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.85);
-      color: #fff;
-
-      > button{
-        padding: 10px;
-        border-radius: 10px;
-        background-color: #ff0000;
-        color: #ffffff;
-        border: 0;
-        cursor: pointer;
-        font-size: 16px;
-        letter-spacing: 1px;
-        position: relative;
-        top: 10px;
-        left: 10px;
-
-        &:hover{
-          background-color: rgb(200,0,0);
-        }
-
-        &:active{
-          position: relative;
-          top: 12px;
-        }
-      }
+      @extend .section-default;
 
       div.remove-user-form{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        width: 400px;
-        max-width: 95%;
-
-        h2{
-          text-align: center;
-          font-size: 40px;
-          letter-spacing: 2px;
-        }
-
-        form{
-          margin-top: 50px;
-
-          div.camp{
-            margin-bottom: 40px;
-
-            &:last-child{
-              margin-bottom: 0;
-            }
-
-            label{
-              position: relative;
-              top: 25px;
-              font-size: 18px;
-              transition: top 0.3s ease;
-            }
-
-            input{
-              padding: 10px 15px;
-              width: 100%;
-              outline: 0;
-              border-bottom: 1px solid #ffffff;
-              border-top: 0;
-              border-left: 0;
-              border-right: 0;
-              background-color: transparent;
-              color: #ffffff;
-
-              &:focus{
-                border-bottom: 1px solid rgb(0,200,200);
-              }
-
-              &:focus + label,
-              &:not(:placeholder-shown) + label {
-                top: 0;
-              }
-            }
-
-            &:focus-within label {
-              top: 0;
-            }
-          }
-
-          button[type=submit]{
-            padding: 10px;
-            border-radius: 30px;
-            background-color: rgb(0,200,200);
-            color: #ffffff;
-            margin-top: 30px;
-            border: 0;
-            font-size: 18px;
-            width: 150px;
-            cursor: pointer;
-            letter-spacing: 1px;
-            position: relative;
-            left: 50%;
-            transform: translateX(-50%);
-
-            &:hover{
-              background-color: rgb(0,220,220);
-            }
-
-            &:active{
-              position: relative;
-              top: 2px;
-            }
-          }
-        }
+        @extend .div-form;
       }
     }
   }
