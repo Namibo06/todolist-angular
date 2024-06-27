@@ -14,7 +14,7 @@
   <main>
     <form action="" (submit)="updateTask()">
       <div class="row">
-        <input type="text" name="title" [(ngModel)]="title" required>
+        <input type="text" name="title" [(ngModel)]="title" required maxlength="25">
 
         <button type="submit">Salvar</button>
       </div><!--row-->

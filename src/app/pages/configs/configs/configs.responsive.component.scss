@@ -1,0 +1,25 @@
+@media screen and (width < 360px) {
+  section.perfil{
+    flex-direction: column !important;
+    justify-content: center !important;
+
+    div.perfil-wraper{
+      p{
+        position: absolute;
+        top: 55px;
+        left: 75px;
+        font-size: 70px;
+        color: #ffffff;
+
+      }
+    }
+
+    div.profile-box{
+      margin-top: 40px !important;
+    }
+
+    section.add-task{
+      margin-top: 0px !important;
+    }
+  }
+}

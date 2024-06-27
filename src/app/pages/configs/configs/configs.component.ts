@@ -7,7 +7,7 @@ import { FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-configs',
   templateUrl: './configs.component.html',
-  styleUrl: './configs.component.scss'
+  styleUrls: ['./configs.component.scss','./configs.responsive.component.scss']
 })
 export class ConfigsComponent implements OnInit{
   /*data */
