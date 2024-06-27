@@ -61,7 +61,7 @@ export class ConfigsComponent implements OnInit{
         this.email=res.email;
         this.username=res.username;
         const username_format = res.username.charAt(0);
-        this.username_first_letter=username_format;
+        this.username_first_letter=username_format.toUpperCase();
       },
       error:(err)=>{
         console.log(err);
